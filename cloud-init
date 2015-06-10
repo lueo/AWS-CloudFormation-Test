@@ -1,0 +1,37 @@
+#cloud-config
+preserve_hostname: false
+timezone: Asia/Taipei
+repo_update: true
+package_reboot_if_required: true
+
+yum_repos:
+    epel:
+        baseurl: http://download.fedoraproject.org/pub/epel/7/$basearch
+        enabled: true
+        failovermethod: priority
+        gpgcheck: true
+        gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+        name: Extra Packages for Enterprise Linux 7 - $basearch
+
+packages:
+ - wget
+ - vim
+
+users:
+  - name: yccrawler
+    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
+    groups: wheel
+    ssh-authorized-keys:
+      - ssh-rsa 
+  - name: f3377
+    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
+    groups: wheel
+    ssh-authorized-keys:
+      - ssh-rsa 
+  - name: f6241
+    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
+    groups: wheel
+    ssh-authorized-keys:
+      - ssh-rsa 
+
+output: {all: '| tee -a /var/log/cloud-init-output.log'}
