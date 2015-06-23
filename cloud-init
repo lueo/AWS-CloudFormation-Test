@@ -22,16 +22,6 @@ users:
     sudo: ["ALL=(ALL) NOPASSWD:ALL"]
     groups: wheel
     ssh-authorized-keys:
-      - ssh-rsa 
-  - name: f3377
-    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
-    groups: wheel
-    ssh-authorized-keys:
-      - ssh-rsa 
-  - name: f6241
-    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
-    groups: wheel
-    ssh-authorized-keys:
-      - ssh-rsa 
+      - ssh-rsa xxx aws-key-locatrion
 
 output: {all: '| tee -a /var/log/cloud-init-output.log'}
